@@ -141,7 +141,7 @@
 
   /* Portfolio Card Styles */
   .portfolio-card {
-    @apply min-w-[300px] glass-card hover-lift hover-glow cursor-pointer group;
+    @apply min-w-[300px] glass-card hover-lift hover-glow cursor-pointer;
   }
 
   .portfolio-image {

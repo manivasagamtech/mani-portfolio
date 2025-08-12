@@ -27,7 +27,7 @@ const PortfolioSection: React.FC<PortfolioSectionProps> = ({ title, subtitle, it
           {items.map((item, index) => (
             <div
               key={item.id}
-              className="portfolio-card animate-slide-in-right"
+              className="portfolio-card group animate-slide-in-right"
               style={{ animationDelay: `${index * 0.1}s` }}
             >
               <div className="relative overflow-hidden rounded-xl mb-4">
