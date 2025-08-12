@@ -127,7 +127,7 @@
 
   /* Smooth Scroll Containers */
   .scroll-container {
-    @apply flex gap-6 overflow-x-auto pb-4 scrollbar-thin scrollbar-track-transparent scrollbar-thumb-primary/30 hover:scrollbar-thumb-primary/50;
+    @apply flex gap-6 overflow-x-auto pb-4;
   }
 
   /* Hover Animations */
