@@ -2,95 +2,82 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
-All colors MUST be HSL.
-*/
+/* Luxury Design System - Premium Portfolio Theme */
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    /* Luxury Color Palette - Navy & Gold */
+    --background: 218 30% 8%;           /* Deep navy background */
+    --foreground: 210 40% 98%;          /* Pure white text */
 
-    --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
+    --card: 218 25% 12%;                /* Darker navy cards */
+    --card-foreground: 210 40% 98%;
 
-    --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
+    --popover: 218 25% 12%;
+    --popover-foreground: 210 40% 98%;
 
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
+    --primary: 44 96% 65%;              /* Luxury gold */
+    --primary-foreground: 218 30% 8%;
 
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
+    --secondary: 217 32% 17%;           /* Muted navy */
+    --secondary-foreground: 210 40% 98%;
 
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
+    --muted: 217 32% 17%;
+    --muted-foreground: 215 20% 65%;
 
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
+    --accent: 44 96% 65%;               /* Luxury gold accent */
+    --accent-foreground: 218 30% 8%;
 
-    --destructive: 0 84.2% 60.2%;
+    --destructive: 0 84% 60%;
     --destructive-foreground: 210 40% 98%;
 
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
+    --border: 217 32% 17%;
+    --input: 217 32% 17%;
+    --ring: 44 96% 65%;
 
-    --radius: 0.5rem;
+    --radius: 12px;
 
-    --sidebar-background: 0 0% 98%;
+    /* Premium Gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(44 96% 65%) 0%, hsl(38 100% 70%) 100%);
+    --gradient-secondary: linear-gradient(135deg, hsl(218 30% 8%) 0%, hsl(217 32% 17%) 100%);
+    --gradient-hero: linear-gradient(135deg, hsl(218 30% 8%) 0%, hsl(220 30% 12%) 50%, hsl(217 32% 17%) 100%);
+    --gradient-glass: linear-gradient(135deg, hsl(217 32% 17% / 0.1) 0%, hsl(210 40% 98% / 0.05) 100%);
 
-    --sidebar-foreground: 240 5.3% 26.1%;
+    /* Luxury Shadows */
+    --shadow-luxury: 0 20px 50px -12px hsl(218 30% 8% / 0.25);
+    --shadow-gold: 0 10px 30px -10px hsl(44 96% 65% / 0.3);
+    --shadow-glow: 0 0 40px hsl(44 96% 65% / 0.15);
 
-    --sidebar-primary: 240 5.9% 10%;
+    /* Smooth Transitions */
+    --transition-luxury: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 
-    --sidebar-primary-foreground: 0 0% 98%;
-
-    --sidebar-accent: 240 4.8% 95.9%;
-
-    --sidebar-accent-foreground: 240 5.9% 10%;
-
-    --sidebar-border: 220 13% 91%;
-
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    /* Typography */
+    --font-display: 'Playfair Display', serif;
+    --font-body: 'Inter', sans-serif;
   }
 
   .dark {
-    --background: 222.2 84% 4.9%;
+    /* Same as root for luxury dark theme */
+    --background: 218 30% 8%;
     --foreground: 210 40% 98%;
-
-    --card: 222.2 84% 4.9%;
+    --card: 218 25% 12%;
     --card-foreground: 210 40% 98%;
-
-    --popover: 222.2 84% 4.9%;
+    --popover: 218 25% 12%;
     --popover-foreground: 210 40% 98%;
-
-    --primary: 210 40% 98%;
-    --primary-foreground: 222.2 47.4% 11.2%;
-
-    --secondary: 217.2 32.6% 17.5%;
+    --primary: 44 96% 65%;
+    --primary-foreground: 218 30% 8%;
+    --secondary: 217 32% 17%;
     --secondary-foreground: 210 40% 98%;
-
-    --muted: 217.2 32.6% 17.5%;
-    --muted-foreground: 215 20.2% 65.1%;
-
-    --accent: 217.2 32.6% 17.5%;
-    --accent-foreground: 210 40% 98%;
-
-    --destructive: 0 62.8% 30.6%;
+    --muted: 217 32% 17%;
+    --muted-foreground: 215 20% 65%;
+    --accent: 44 96% 65%;
+    --accent-foreground: 218 30% 8%;
+    --destructive: 0 84% 60%;
     --destructive-foreground: 210 40% 98%;
-
-    --border: 217.2 32.6% 17.5%;
-    --input: 217.2 32.6% 17.5%;
-    --ring: 212.7 26.8% 83.9%;
-    --sidebar-background: 240 5.9% 10%;
-    --sidebar-foreground: 240 4.8% 95.9%;
-    --sidebar-primary: 224.3 76.3% 48%;
-    --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 240 3.7% 15.9%;
-    --sidebar-accent-foreground: 240 4.8% 95.9%;
-    --sidebar-border: 240 3.7% 15.9%;
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    --border: 217 32% 17%;
+    --input: 217 32% 17%;
+    --ring: 44 96% 65%;
   }
 }
 
@@ -100,6 +87,137 @@ All colors MUST be HSL.
   }
 
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground font-body;
+    background: linear-gradient(135deg, hsl(218 30% 8%) 0%, hsl(220 30% 12%) 50%, hsl(217 32% 17%) 100%);
+    min-height: 100vh;
   }
+
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+@layer components {
+  /* Luxury Button Variants */
+  .btn-luxury {
+    @apply relative overflow-hidden bg-gradient-to-r from-primary to-accent text-primary-foreground font-semibold px-8 py-4 rounded-xl transition-all duration-300 hover:scale-105 hover:shadow-gold;
+  }
+
+  .btn-ghost-luxury {
+    @apply relative overflow-hidden border-2 border-primary/30 text-primary bg-transparent backdrop-blur-sm font-semibold px-8 py-4 rounded-xl transition-all duration-300 hover:bg-primary/10 hover:border-primary hover:shadow-glow;
+  }
+
+  /* Glass Morphism Effects */
+  .glass-card {
+    @apply backdrop-blur-md bg-gradient-to-br from-card/40 to-card/20 border border-white/10 rounded-2xl p-6 transition-all duration-300 hover:bg-gradient-to-br hover:from-card/60 hover:to-card/30 hover:border-white/20;
+  }
+
+  .glass-nav {
+    @apply backdrop-blur-lg bg-background/80 border-b border-white/10;
+  }
+
+  /* Premium Text Styles */
+  .text-luxury {
+    @apply bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent;
+  }
+
+  .text-display {
+    @apply font-display font-bold tracking-tight;
+  }
+
+  /* Smooth Scroll Containers */
+  .scroll-container {
+    @apply flex gap-6 overflow-x-auto pb-4 scrollbar-thin scrollbar-track-transparent scrollbar-thumb-primary/30 hover:scrollbar-thumb-primary/50;
+  }
+
+  /* Hover Animations */
+  .hover-lift {
+    @apply transition-all duration-300 hover:-translate-y-2 hover:shadow-luxury;
+  }
+
+  .hover-glow {
+    @apply transition-all duration-300 hover:shadow-glow;
+  }
+
+  /* Portfolio Card Styles */
+  .portfolio-card {
+    @apply min-w-[300px] glass-card hover-lift hover-glow cursor-pointer group;
+  }
+
+  .portfolio-image {
+    @apply w-full h-48 object-cover rounded-xl mb-4 transition-all duration-300 group-hover:scale-105;
+  }
+
+  /* Section Headers */
+  .section-header {
+    @apply text-display text-4xl md:text-5xl lg:text-6xl text-luxury mb-4;
+  }
+
+  .section-subtitle {
+    @apply text-muted-foreground text-lg md:text-xl mb-8 max-w-2xl;
+  }
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: hsl(var(--primary) / 0.3);
+  border-radius: 4px;
+  transition: background 0.3s ease;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: hsl(var(--primary) / 0.5);
+}
+
+/* Smooth entrance animations */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes glow {
+  0%, 100% {
+    box-shadow: 0 0 20px hsl(var(--primary) / 0.1);
+  }
+  50% {
+    box-shadow: 0 0 40px hsl(var(--primary) / 0.3);
+  }
+}
+
+.animate-fade-in-up {
+  animation: fadeInUp 0.6s ease-out;
+}
+
+.animate-slide-in-right {
+  animation: slideInRight 0.6s ease-out;
+}
+
+.animate-glow {
+  animation: glow 3s ease-in-out infinite;
 }
