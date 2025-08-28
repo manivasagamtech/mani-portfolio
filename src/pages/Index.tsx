@@ -22,6 +22,7 @@ import canvaImg from '@/assets/canva.jpg';
 import socialAutomationImg from '@/assets/social-automation.jpg';
 
 const Index = () => {
+  console.log('Index component loading...');
   // Portfolio data for each section
   const portfolioSections = [
     {
