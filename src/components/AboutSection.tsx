@@ -59,11 +59,17 @@ const AboutSection: React.FC = () => {
               </p>
             </div>
             
-            <div className="pt-6">
-              <button className="btn-luxury">
-                Download Resume
-              </button>
-            </div>
+          <div className="pt-6">
+  <a
+    href="https://wa.me/919659652945?text=Hi%20I%20have%20sent%20an%20enquiry%20to%20learn%20more%20about%20your%20service"
+    target="_blank"
+    rel="noopener noreferrer"
+    className="btn-luxury"
+  >
+    Enquiry Now
+  </a>
+</div>
+
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 animate-slide-in-right">
