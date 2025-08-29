@@ -4,10 +4,10 @@ import heroPortrait from '@/assets/hero-portrait.jpg';
 
 const HeroSection: React.FC = () => {
   const stats = [
-    { icon: Star, value: '500+', label: 'Projects Completed' },
-    { icon: Users, value: '150+', label: 'Happy Clients' },
-    { icon: Award, value: '5+', label: 'Years Experience' },
-    { icon: TrendingUp, value: '300%', label: 'ROI Average' },
+    { icon: Star, value: '100+', label: 'Projects Completed' },
+    { icon: Users, value: '15+', label: 'Happy Clients' },
+    { icon: Award, value: '3+', label: 'Years Experience' },
+    { icon: TrendingUp, value: '50%', label: 'ROI Average' },
   ];
 
   const scrollToAbout = () => {
