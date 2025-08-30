@@ -1,38 +1,46 @@
 import React from 'react';
-import { Mail, Phone, MapPin, Send, Calendar, MessageCircle } from 'lucide-react';
+import { Mail, Calendar, MessageCircle, Send } from 'lucide-react';
 
 const ContactSection: React.FC = () => {
+  // Updated contact actions: mailto links with subject/body and WhatsApp
   const contactMethods = [
     {
       icon: Mail,
       title: 'Primary Email',
       value: 'maniskk1414@gmail.com',
-      href: 'mailto:maniskk1414@gmail.com'
+      href:
+        'mailto:maniskk1414@gmail.com?' +
+        'subject=Enquiry%20About%20Services&' +
+        'body=Hi%20Mani,%20I%20would%20like%20to%20learn%20more%20about%20your%20services.'
     },
     {
       icon: Mail,
       title: 'Business Email',
       value: 'manivasagam.tech@gmail.com',
-      href: 'mailto:manivasagam.tech@gmail.com'
+      href:
+        'mailto:manivasagam.tech@gmail.com?' +
+        'subject=Enquiry%20About%20Services&' +
+        'body=Hi%20Mani,%20I%20would%20like%20to%20learn%20more%20about%20your%20services.'
     },
     {
       icon: Calendar,
       title: 'Schedule a Call',
       value: 'Book a consultation',
-      href: '#schedule'
+      href:
+        'https://wa.me/919659652945?' +
+        'text=Hi%20IM%20looking%20to%20schedule%20a%20call%20to%20enquire%20more%20about%20the%20services'
     },
     {
       icon: MessageCircle,
       title: 'Quick Response',
       value: 'Within 24 hours',
-      href: '#'
+      href: '#' // keep as a placeholder or link to an FAQ/contact page
     }
   ];
 
   return (
     <section id="contact" className="py-20 px-4 md:px-8 lg:px-12 relative">
       <div className="absolute inset-0 bg-gradient-to-t from-card/20 via-transparent to-transparent" />
-      
       <div className="relative z-10 max-w-7xl mx-auto">
         <div className="text-center mb-16 animate-fade-in-up">
           <h2 className="section-header">Let's Create Something Amazing</h2>
@@ -62,6 +70,8 @@ const ContactSection: React.FC = () => {
                   href={method.href}
                   className="glass-card hover-lift p-6 group transition-all duration-300 hover:border-primary/30"
                   style={{ animationDelay: `${index * 0.1}s` }}
+                  target={method.href.startsWith('http') ? '_blank' : undefined}
+                  rel={method.href.startsWith('http') ? 'noopener noreferrer' : undefined}
                 >
                   <div className="flex items-start gap-4">
                     <div className="flex-shrink-0">
@@ -82,7 +92,7 @@ const ContactSection: React.FC = () => {
               ))}
             </div>
 
-            {/* Social Proof */}
+            {/* Social Proof / Why Choose Me */}
             <div className="glass-card p-6">
               <h4 className="text-xl font-semibold text-foreground mb-4">Why Choose Me?</h4>
               <ul className="space-y-3 text-muted-foreground">
@@ -112,8 +122,29 @@ const ContactSection: React.FC = () => {
               <h3 className="text-2xl font-display font-bold text-foreground mb-6">
                 Start Your Project
               </h3>
-              
-              <form className="space-y-6">
+
+              {/* Formspree form: uses action attribute to post to your Form ID */}
+              <form
+                action="https://formspree.io/f/mnnbpvnn"
+                method="POST"
+                className="space-y-6"
+              >
+                {/* optional email subject for the notification email you receive */}
+                <input
+                  type="hidden"
+                  name="_subject"
+                  value="New project enquiry from your portfolio site"
+                />
+
+                {/* anti-spam honeypot (hidden field) */}
+                <input
+                  type="text"
+                  name="_gotcha"
+                  className="hidden"
+                  tabIndex={-1}
+                  autoComplete="off"
+                />
+
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div>
                     <label className="block text-sm font-medium text-foreground mb-2">
@@ -121,6 +152,8 @@ const ContactSection: React.FC = () => {
                     </label>
                     <input
                       type="text"
+                      name="firstName"
+                      required
                       className="w-full px-4 py-3 bg-input border border-border rounded-xl focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary transition-all duration-300"
                       placeholder="John"
                     />
@@ -131,6 +164,8 @@ const ContactSection: React.FC = () => {
                     </label>
                     <input
                       type="text"
+                      name="lastName"
+                      required
                       className="w-full px-4 py-3 bg-input border border-border rounded-xl focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary transition-all duration-300"
                       placeholder="Doe"
                     />
@@ -143,6 +178,8 @@ const ContactSection: React.FC = () => {
                   </label>
                   <input
                     type="email"
+                    name="_replyto"
+                    required
                     className="w-full px-4 py-3 bg-input border border-border rounded-xl focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary transition-all duration-300"
                     placeholder="john@example.com"
                   />
@@ -152,16 +189,20 @@ const ContactSection: React.FC = () => {
                   <label className="block text-sm font-medium text-foreground mb-2">
                     Service Interest
                   </label>
-                  <select className="w-full px-4 py-3 bg-input border border-border rounded-xl focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary transition-all duration-300">
-                    <option>Select a service</option>
-                    <option>Facebook Ads Management</option>
-                    <option>Google Ads Campaigns</option>
-                    <option>Content Creation</option>
-                    <option>Website Development</option>
-                    <option>Email Automation</option>
-                    <option>Social Media Marketing</option>
-                    <option>Complete Digital Strategy</option>
-                  </select>
+                    <select
+                      name="serviceInterest"
+                      required
+                      className="w-full px-4 py-3 bg-input border border-border rounded-xl focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary transition-all duration-300"
+                    >
+                      <option value="" disabled selected>Select a service</option>
+                      <option>Facebook Ads Management</option>
+                      <option>Google Ads Campaigns</option>
+                      <option>Content Creation</option>
+                      <option>Website Development</option>
+                      <option>Email Automation</option>
+                      <option>Social Media Marketing</option>
+                      <option>Complete Digital Strategy</option>
+                    </select>
                 </div>
 
                 <div>
@@ -169,7 +210,9 @@ const ContactSection: React.FC = () => {
                     Project Details
                   </label>
                   <textarea
+                    name="projectDetails"
                     rows={4}
+                    required
                     className="w-full px-4 py-3 bg-input border border-border rounded-xl focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary transition-all duration-300 resize-none"
                     placeholder="Tell me about your project goals, timeline, and budget..."
                   ></textarea>
