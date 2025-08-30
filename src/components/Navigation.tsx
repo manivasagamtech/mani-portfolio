@@ -28,7 +28,21 @@ const Navigation: React.FC = () => {
   }, []);
 
   const scrollToSection = (sectionName: string) => {
-    const element = document.getElementById(sectionName.toLowerCase().replace(/\s+/g, '-'));
+    const sectionMap: { [key: string]: string } = {
+      'Content Creation': 'content-creation',
+      'Social Media Marketing': 'social-media-marketing', 
+      'Video Editing': 'video-editing',
+      'Facebook Ads': 'facebook-ads',
+      'Google Ads': 'google-ads',
+      'Website Creation': 'website-creation',
+      'Mastermind': 'mastermind',
+      'Automation': 'website-automations',
+      'About': 'about',
+      'Contact': 'contact'
+    };
+    
+    const elementId = sectionMap[sectionName] || sectionName.toLowerCase().replace(/\s+/g, '-');
+    const element = document.getElementById(elementId);
     if (element) {
       element.scrollIntoView({ behavior: 'smooth' });
       setIsMobileMenuOpen(false);

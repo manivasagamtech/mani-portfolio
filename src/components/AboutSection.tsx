@@ -45,7 +45,7 @@ const AboutSection: React.FC = () => {
             </h3>
             <div className="space-y-4 text-lg text-muted-foreground leading-relaxed">
               <p>
-                With over 5 years of experience in digital marketing and automation, I specialize in 
+                With 3+ Years Experience (since 2022) in digital marketing and automation, I specialize in 
                 creating comprehensive solutions that drive growth and efficiency for businesses across industries.
               </p>
               <p>
